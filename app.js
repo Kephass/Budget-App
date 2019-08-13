@@ -11,8 +11,14 @@ var budgetController = (function (params) {
 var UIController = (function () {
     
     return function () {
-        document.getElementById("")
-    }
+        getInput: function() {
+            return {
+                type: document.querySelector('.add__type').value, // will be either inc or exp.
+                description: document.querySelector('.add__description').value,
+                value: document.querySelector('.add__value').value
+            };
+        }
+    };
 
 })();
 
