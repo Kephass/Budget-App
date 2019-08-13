@@ -10,7 +10,9 @@ var budgetController = (function (params) {
 //UI CONTROLLER
 var UIController = (function () {
     
-    //Some code
+    return function () {
+        document.getElementById("")
+    }
 
 })();
 
