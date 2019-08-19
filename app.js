@@ -24,7 +24,7 @@ var UIController = (function () {
                 description: document.querySelector(DOMstrings.inputDescription).value,
                 value: document.querySelector(DOMstrings.inputValue).value
             };
-        }
+        };
     };
 
     //making this object public so that other methods can access it.
