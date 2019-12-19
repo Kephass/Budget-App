@@ -2,7 +2,6 @@
 //using of closure and IIFE to keep the controller private 
 var budgetController = (function (params) {
 
-
 })();
 
 
@@ -44,11 +43,22 @@ var controller = (function (budgetCtrl, UICtrl) {
     //initializing the object...
     var DOM = UICtrl.getDOMstrings();
 
+    var setupEventListeners = function () {
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+
+        document.addEventListener('keypress', function (event) {
+            if (event.keyCode === 13 || event.which === 13) {
+                ctrlAddItem();
+            }
+
+        })
+
+    };    
+
     var ctrlAddItem = function () {
 
         //1. get field input data
         var input = UICtrl.getInput();
-        console.log(input);
 
 
         //2. add the item to the budget controller
@@ -61,13 +71,13 @@ var controller = (function (budgetCtrl, UICtrl) {
 
     }
 
-    document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
-
-    document.addEventListener('keypress', function (event) {
-        if (event.keyCode === 13 || event.which === 13) {
-            ctrlAddItem();
+    return {
+        init: function () {
+            console.log('Application has started.');
+            setupEventListeners();
         }
-
-    })
+    }
 
 })(budgetController, UIController);
+
+controller.init();
